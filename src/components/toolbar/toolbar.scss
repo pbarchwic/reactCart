@@ -1,0 +1,66 @@
+@import '../../variables.scss';
+
+.toolbar {
+  position: fixed;
+  width: 100%;
+  height: 56px;
+  background-color: $color-white;
+  background-image: linear-gradient(180deg, $gradient-dark 9%, $gradient-light 99%);
+  box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.3);
+
+  .container{
+    position: relative;
+    height: 100%;
+    margin: auto;
+    padding:  0 60px;
+    max-width: 1600px;
+    .icons-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+
+      .cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 56px;
+        height: 100%;
+        transition: 0.3s;
+
+        .cart-icon {
+          display: block;
+          width: 20px;
+        }
+
+        .items-length {
+          font-weight: 600;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+
+          &.not-empty {
+            background-color: $button-color-second;
+            color: $color-white;
+          }
+        }
+
+        .cart-content {
+         display: none;
+       }
+
+        &:hover {
+          background-color: $color-white;
+          border-left: 1px solid $border-color;
+          border-right: 1px solid $border-color;
+          .cart-content {
+            display: block;
+          }
+        }
+      }
+    }
+
+
+  }
+}
