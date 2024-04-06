@@ -1,30 +1,28 @@
-// import { useState, useEffect } from "react";
-// import axios from 'axios';
+
 import './product-card.scss'
-import data from '../../assets/data-mock/products.json'
+// import data from '../../assets/data-mock/products.json'
 
-function ProductCard() {
+function ProductCard({products}) {
 
-    console.log(data);
-    const products = data.products;
+    // console.log(data);
+    // const products = data.products;
     const productCard = products.map((product, index) => (
         <div className="product-card">
             <img className="product-card__img" src={product.image} key={index} alt={product.name}/>
             <div className="product-card__desc" disabled={product.owned}>
-                <span class="name">{product.name}</span>
-                <div class="info-box">
-                    <span class="discount" >-{product.discount}%</span>
-                    <button
-                    class="button action"
-                    //  *ngIf="!product.owned; else owned"
-                    //  (click)="addToCart(product)"
-                    //  [disabled]="product.inCart"
-                    >
-                        {product.inCart ? "in cart" : "$" + product.price }
-                    </button>
-                    {/* <ng-template #owned>
-                    <span class="action">owned</span>
-                    </ng-template> */}
+                <span className="name">{product.name}</span>
+                <div className="info-box">
+                    <span className="discount" >-{product.discount}%</span>
+                    { !product.owned ?
+                         <button
+                         className="button action"
+                         //  (click)="addToCart(product)"
+                         disabled={product.inCart}
+                         >
+                             {product.inCart ? "in cart" : "$" + product.price }
+                         </button>
+                    : <span className="action">owned</span>
+                    }
                 </div>
             </div>
         </div>

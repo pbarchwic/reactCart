@@ -1,6 +1,8 @@
 import './layout.scss'
 import witcher from '../../assets/images/witicher.jpg'
 import ProductCard from '../product-card/product-card';
+import data from '../../assets/data-mock/products.json'
+
 
 function Layout () {
     return (
@@ -8,7 +10,7 @@ function Layout () {
             <div className="container">
                 <span className="header">game of the week</span>
                 <img className="big-image" src={witcher} alt='witcher'/>
-                <ProductCard></ProductCard>
+                <ProductCard products={data.products}></ProductCard>
             </div>
         </div>
     )
